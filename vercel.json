@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "index.js"
+      }
+    ],
+    "env": {
+      "DATABASE_URL": "postgresql://taaib_owner:npg_rAOfmlL52SHU@ep-dark-meadow-a8qlk201-pooler.eastus2.azure.neon.tech/taaib?sslmode=require"
+    }
+  }
