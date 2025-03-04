@@ -20,13 +20,12 @@ app.get('/', async (req, res) => {
         const result = await client.query('SELECT * FROM courses');
         res.render('index', { data: result.rows });
     } catch (err) {
-        console.error(err);
+        console.error('Error fetching data from database:', err.message); // Log the error message
         res.status(500).send('Error fetching data');
     } finally {
-      client.release();
+        client.release();
     }
 });
-
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
