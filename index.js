@@ -3,6 +3,8 @@ const app = express();
 const { Pool } = require('pg');
 require('dotenv').config(); 
 
+app.set('view engine', 'ejs');
+
 const PORT = process.env.PORT || 3000;
 
 
@@ -16,7 +18,7 @@ app.get('/', async (req, res) => {
     const client = await pool.connect();
     try {
         const result = await client.query('SELECT * FROM courses');
-        res.render('index.ejs', { data: result.rows });
+        res.render('index', { data: result.rows });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error fetching data');
