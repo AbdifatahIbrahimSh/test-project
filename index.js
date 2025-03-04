@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
 const { Pool } = require('pg');
+require('dotenv').config(); 
 
 const PORT = process.env.PORT || 3000;
 
 
 const pool = new Pool({
-    connectionString: 'postgresql://taaib_owner:npg_rAOfmlL52SHU@ep-dark-meadow-a8qlk201-pooler.eastus2.azure.neon.tech/taaib?sslmode=require',
+    connectionString: process.env.DATABASE_URL,
 });
 
 
